@@ -5,6 +5,8 @@ const app = express();
 const forecast = require("./utils/forecast");
 const { response } = require("express");
 
+// Specify port to enable Heroku to run app
+const port = process.env.PORT || 3000;
 // console.log(__dirname);
 const publicDirectoryPath = path.join(__dirname, "../public");
 const viewsPath = path.join(__dirname, "../templates/views");
@@ -85,6 +87,6 @@ app.get("*", (req, res) => {
     });
 });
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log("server is listening on 3000.");
 });
